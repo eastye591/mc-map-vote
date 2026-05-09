@@ -1281,20 +1281,46 @@
             }
         }
 
-        // ---- 选择逻辑 ----
+        // ---- 选择逻辑：点击一张自动凑5张 ----
         function toggleSelect(card) {
             if (card.classList.contains('disabled') || card.classList.contains('played')) return;
-            const selected = document.querySelectorAll('.map-card.selected');
+
+            // 如果已选中，取消选中
             if (card.classList.contains('selected')) {
                 card.classList.remove('selected');
-            } else {
-                if (selected.length >= 5) {
-                    showToast('每人最多只能选5张地图哦！');
-                    return;
-                }
-                card.classList.add('selected');
+                updateCardStates();
+                return;
             }
+
+            // 清除之前的所有选择
+            document.querySelectorAll('.map-card.selected').forEach(c => c.classList.remove('selected'));
+
+            // 选中点击的地图
+            const allCards = Array.from(document.querySelectorAll('.map-card'));
+            card.classList.add('selected');
+
+            // 随机从剩余未禁用/未游玩的地图中选4张
+            const candidates = allCards.filter(c =>
+                c !== card &&
+                !c.classList.contains('played') &&
+                !c.classList.contains('disabled')
+            );
+            // 随机打乱
+            for (let i = candidates.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+            }
+            // 选前4张
+            const autoPicks = candidates.slice(0, 4);
+            autoPicks.forEach((c, index) => {
+                setTimeout(() => {
+                    c.classList.add('selected');
+                    c.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, index * 150);
+            });
+
             updateCardStates();
+            showToast('🎲 已自动为你选择5张地图！');
         }
 
         function updateCardStates() {
