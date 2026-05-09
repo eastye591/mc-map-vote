@@ -1188,9 +1188,9 @@
         // ============================================================
         const CONFIG = {
             // 你的 API Access Key (注册后在 Dashboard 获取)
-            apiKey: 'YOUR_JSONBIN_API_KEY',
+            apiKey: '$2a$10$adU2TcYAO4JNso1udgfJl.OdajBKnqa5PimIXE8mzPO64OKeM4BK2',
             // 你的 Bin ID (创建 Bin 后在 URL 中获取，形如 xxxxxxxxxx)
-            binId: 'YOUR_BIN_ID',
+            binId: '69ffc3fcadc21f119a793cbf',
             // API 地址 (一般不用改)
             apiUrl: 'https://api.jsonbin.io/v3'
         };
@@ -1239,8 +1239,8 @@
         // ---- JSONBin API 工具函数 ----
         async function fetchVotes() {
             try {
-                const resp = await fetch(`${CONFIG.apiUrl}/bins/${CONFIG.binId}/latest`, {
-                    headers: { 'X-Master-Key': CONFIG.apiKey }
+                const resp = await fetch(`${CONFIG.apiUrl}/b/${CONFIG.binId}/latest`, {
+                    headers: { 'X-Access-Key': CONFIG.apiKey }
                 });
                 if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
                 const data = await resp.json();
@@ -1265,11 +1265,11 @@
                 votes.push(voteObj);
 
                 // 写回
-                const resp = await fetch(`${CONFIG.apiUrl}/bins/${CONFIG.binId}`, {
+                const resp = await fetch(`${CONFIG.apiUrl}/b/${CONFIG.binId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-Master-Key': CONFIG.apiKey
+                        'X-Access-Key': CONFIG.apiKey
                     },
                     body: JSON.stringify({ votes })
                 });
