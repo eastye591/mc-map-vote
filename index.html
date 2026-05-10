@@ -1406,6 +1406,7 @@
                     <div style="text-align: center; margin-top: 25px;">
                         <button class="copy-btn" onclick="copyResults(${JSON.stringify(sorted).replace(/"/g, '&quot;')}, ${votes.length})">📋 复制结果</button>
                         <button class="back-btn" onclick="location.reload()" style="margin-left: 15px;">返回</button>
+                        <button class="random-btn" onclick="clearAllVotes()" style="margin-left: 15px; font-size: 0.9em; padding: 12px 25px;">🗑️ 清空所有投票</button>
                     </div>
                 </div>
             `;
@@ -1495,6 +1496,27 @@
             });
             setTimeout(() => updateCardStates(), 5 * 200 + 100);
             showToast('🎲 随机帮你选了 5 张地图！');
+        }
+
+        // ---- 清空所有投票 ----
+        async function clearAllVotes() {
+            if (!confirm('⚠️ 确认清空所有投票数据？此操作不可恢复！')) return;
+            try {
+                const resp = await fetch(`${CONFIG.apiUrl}/b/${CONFIG.binId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Access-Key': CONFIG.apiKey
+                    },
+                    body: JSON.stringify({ votes: [] })
+                });
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                showToast('✅ 已清空所有投票！');
+                setTimeout(() => location.reload(), 1000);
+            } catch (e) {
+                console.error('清空失败:', e);
+                showToast('❌ 清空失败，请重试');
+            }
         }
 
         // ---- Toast ----
