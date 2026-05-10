@@ -499,6 +499,200 @@
             color: #6bcb77;
         }
 
+        /* ===== 地图管理页样式 ===== */
+        .admin-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #8892b0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 18px;
+            font-size: 0.9em;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .admin-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .admin-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-form h3 {
+            color: #00d2ff;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .admin-form .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .admin-form .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .admin-form .form-group label {
+            display: block;
+            color: #8892b0;
+            font-size: 0.9em;
+            margin-bottom: 6px;
+        }
+
+        .admin-form .form-group input,
+        .admin-form .form-group select,
+        .admin-form .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 0.95em;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: inherit;
+        }
+
+        .admin-form .form-group input:focus,
+        .admin-form .form-group select:focus,
+        .admin-form .form-group textarea:focus {
+            outline: none;
+            border-color: #00d2ff;
+        }
+
+        .admin-form .form-group select option {
+            background: #16213e;
+            color: white;
+        }
+
+        .admin-form .form-group textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .admin-form .form-group input::placeholder,
+        .admin-form .form-group textarea::placeholder {
+            color: #8892b0;
+        }
+
+        .admin-add-btn {
+            background: linear-gradient(135deg, #6bcb77, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .admin-add-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(107, 203, 119, 0.3);
+        }
+
+        .admin-map-list {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-map-list h3 {
+            color: #00d2ff;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .admin-map-category {
+            margin-bottom: 20px;
+        }
+
+        .admin-map-category h4 {
+            color: #ffd93d;
+            margin-bottom: 10px;
+            font-size: 1em;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-map-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        .admin-map-item .map-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .admin-map-item .map-item-name {
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .admin-map-item .map-item-id {
+            color: #8892b0;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+
+        .admin-delete-btn {
+            background: rgba(255, 107, 107, 0.3);
+            border: 1px solid rgba(255, 107, 107, 0.5);
+            color: #ff6b6b;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .admin-delete-btn:hover {
+            background: rgba(255, 107, 107, 0.5);
+        }
+
+        .admin-back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .admin-back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .loading-spinner {
+            text-align: center;
+            padding: 40px;
+            color: #8892b0;
+            font-size: 1.1em;
+        }
+
         @media (max-width: 600px) {
             .header h1 {
                 font-size: 1.8em;
@@ -512,6 +706,14 @@
                 font-size: 0.8em;
                 padding: 4px 10px;
             }
+
+            .admin-form .form-row {
+                flex-direction: column;
+            }
+
+            .admin-form .form-group {
+                min-width: auto;
+            }
         }
     </style>
 </head>
@@ -520,6 +722,10 @@
         <div class="header">
             <h1>🎮 MC多人地图投票</h1>
             <p>选出你想和朋友们一起玩的地图！（可多选）</p>
+        </div>
+
+        <div style="text-align: right; margin-bottom: 15px;">
+            <button class="admin-btn" onclick="showAdminPage()">⚙️ 地图管理</button>
         </div>
 
         <div class="instructions">
@@ -536,632 +742,9 @@
 
         <input type="text" class="name-input" id="playerName" placeholder="输入你的昵称" maxlength="20">
 
-        <!-- 射击/对战类 -->
-        <div class="vote-section">
-            <h2 class="category-title shooting">🏹 射击 / 对战类</h2>
-            
-            <div class="map-card" data-map="splatoon" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">喷射战士MC版</span>
-                        <span class="name-en">Splatoon in Minecraft</span>
-                    </div>
-                    <div class="map-desc">MC版喷射战士，涂地盘+射击对战，多人欢乐对抗</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 不限人数</span>
-                        <span class="meta-item version">📦 1.21</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV16w3ezuEb1/?t=15" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="fangkuai" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">方块喷喷喷</span>
-                        <span class="name-en">FangKuai PenPenPen</span>
-                    </div>
-                    <div class="map-desc">国产喷射战士风格地图，需要搭配特定整合包游玩</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 需整合包</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV16w3ezuEb1/?t=20" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="mace" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">锤子大乱斗</span>
-                        <span class="name-en">MACE BLASTERS</span>
-                    </div>
-                    <div class="map-desc">使用重锤进行多人乱斗，击飞对手得分，简单刺激</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 2-6人最佳</span>
-                        <span class="meta-item version">📦 1.21.5-6</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV16w3ezuEb1/?t=90" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 团队对抗类 -->
-        <div class="vote-section">
-            <h2 class="category-title team">🎯 团队对抗类</h2>
-            
-            <div class="map-card" data-map="ctf" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">终极夺旗战</span>
-                        <span class="name-en">Ultimate Capture the Flag</span>
-                    </div>
-                    <div class="map-desc">经典夺旗模式，分队对抗抢夺对方旗帜带回己方基地</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人（建议4+）</span>
-                        <span class="meta-item version">📦 1.21.5</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV16w3ezuEb1/?t=120" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 派对/棋盘游戏类 -->
-        <div class="vote-section">
-            <h2 class="category-title party">🎲 派对 / 棋盘游戏类</h2>
-            
-            <div class="map-card" data-map="wii" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">Wii派对棋盘岛</span>
-                        <span class="name-en">Wii Party: Board Game Island</span>
-                    </div>
-                    <div class="map-desc">还原Wii派对经典玩法，棋盘前进+各种小游戏，派对感满满</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 仅限4人</span>
-                        <span class="meta-item version">📦 1.21.1</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV16w3ezuEb1/?t=55" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="bingo" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">终极宾果</span>
-                        <span class="name-en">Yet Another Bingo: Ultimate</span>
-                    </div>
-                    <div class="map-desc">最贴近MC原版的宾果小游戏！收集指定物品完成Bingo卡，合作又有竞争</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 整合包</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1NZqpBYEVM/?t=0" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 闯关/生存挑战类 -->
-        <div class="vote-section">
-            <h2 class="category-title parkour">🏃 闯关 / 生存挑战类</h2>
-            
-            <div class="map-card" data-map="floor" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">100层生存挑战</span>
-                        <span class="name-en">100 Floor Survival</span>
-                    </div>
-                    <div class="map-desc">逐层闯关的生存挑战，难度递增，考验各种MC技巧</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 4人最佳</span>
-                        <span class="meta-item version">📦 1.19</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV16w3ezuEb1/?t=155" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="skyline" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">天际冲刺</span>
-                        <span class="name-en">Skyline Sprint</span>
-                    </div>
-                    <div class="map-desc">高空跑酷冲刺挑战，考验操作和反应速度</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.20.2</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV16w3ezuEb1/?t=175" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 躲猫猫类 -->
-        <div class="vote-section">
-            <h2 class="category-title" style="border-color: #9b59b6;">🐱 躲猫猫类</h2>
-            
-            <div class="map-card" data-map="scaredy_cat" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">Scaredy Cat</span>
-                        <span class="name-en">Hide & Seek</span>
-                    </div>
-                    <div class="map-desc">经典躲猫猫玩法，猫抓老鼠，多人欢乐追逐</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.20.1</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1EKYfzFEng/?t=0" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="hide_seek_remastered" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">躲猫猫重制版</span>
-                        <span class="name-en">Hide and Seek Remastered</span>
-                    </div>
-                    <div class="map-desc">经典躲猫猫重制版，优化玩法，更多乐趣</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.20.1</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1EKYfzFEng/?t=40" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="japanese_hide_seek" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">日式躲猫猫</span>
-                        <span class="name-en">Japanese Hide and Seek</span>
-                    </div>
-                    <div class="map-desc">日式风格躲猫猫，独特的场景设计</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.20.4</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1EKYfzFEng/?t=80" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="cat_mouse" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">猫抓老鼠</span>
-                        <span class="name-en">Cat and Mouse</span>
-                    </div>
-                    <div class="map-desc">猫抓老鼠追逐战，紧张刺激的多人对战</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21.4</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1EKYfzFEng/?t=120" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="block_hide_seek" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">方块躲猫猫</span>
-                        <span class="name-en">Block Hide and Seek</span>
-                    </div>
-                    <div class="map-desc">方块风格躲猫猫，变成方块躲藏</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.16.5</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1EKYfzFEng/?t=160" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 幸运方块类 -->
-        <div class="vote-section">
-            <h2 class="category-title" style="border-color: #f1c40f;">🎲 幸运方块类</h2>
-            
-            <div class="map-card" data-map="lucky_strength" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">幸运与实力</span>
-                        <span class="name-en">Lucky and Strength</span>
-                    </div>
-                    <div class="map-desc">幸运与实力并存，看谁运气好实力强</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 2-4人</span>
-                        <span class="meta-item version">📦 1.21.10</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV188Q5BDEgK/?t=0" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="lucky_block_racing" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">幸运方块赛道</span>
-                        <span class="name-en">Lucky Block Racing</span>
-                    </div>
-                    <div class="map-desc">幸运方块竞速赛，看谁先到终点</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 4-6人</span>
-                        <span class="meta-item version">📦 需特定整合包</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV188Q5BDEgK/?t=37" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="lucky_oneblock" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">幸运方块空岛</span>
-                        <span class="name-en">Lucky Oneblock</span>
-                    </div>
-                    <div class="map-desc">幸运方块空岛生存，看谁能活到最后</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 1-4人</span>
-                        <span class="meta-item version">📦 1.20.1</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV188Q5BDEgK/?t=74" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <!-- 冒险/探索类 -->
-        <div class="vote-section">
-            <h2 class="category-title" style="border-color: #e67e22;">🗡️ 冒险/探索类</h2>
-            
-            <div class="map-card" data-map="atmos" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">ATMOS</span>
-                        <span class="name-en">ATMOS</span>
-                    </div>
-                    <div class="map-desc">肉鸽冒险地图，随机生成关卡</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 2-4人</span>
-                        <span class="meta-item version">📦 需特定整合包</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1NnzzBSE2F/?t=0" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="yoodexy" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">Yoodexy的模组</span>
-                        <span class="name-en">Yoodexy's Mod</span>
-                    </div>
-                    <div class="map-desc">模组冒险地图，独特玩法体验</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 5-6人</span>
-                        <span class="meta-item version">📦 1.21.8</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1NnzzBSE2F/?t=48" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="doors" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">Doors</span>
-                        <span class="name-en">Doors</span>
-                    </div>
-                    <div class="map-desc">门后世界冒险，探索未知</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21.10</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1NnzzBSE2F/?t=96" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="final_paradox" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">终极悖论</span>
-                        <span class="name-en">FINAL PARADOX</span>
-                    </div>
-                    <div class="map-desc">终极悖论冒险，烧脑解密</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.16.5</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1NnzzBSE2F/?t=144" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="enzzo_kebab" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">Enzzo Kebab</span>
-                        <span class="name-en">Enzzo Kebab</span>
-                    </div>
-                    <div class="map-desc">烤肉店冒险，独特主题体验</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.20.4</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1NnzzBSE2F/?t=192" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 建筑比赛类 -->
-        <div class="vote-section">
-            <h2 class="category-title" style="border-color: #1abc9c;">🏗️ 建筑比赛类</h2>
-            
-            <div class="map-card" data-map="building_game" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">建筑游戏重制版</span>
-                        <span class="name-en">Building Game Redux</span>
-                    </div>
-                    <div class="map-desc">经典建筑游戏重制版，比拼创意</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21.4</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1iBwsznE6o/?t=0" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="parkourse_party" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">跑酷派对</span>
-                        <span class="name-en">Parkourse Party</span>
-                    </div>
-                    <div class="map-desc">跑酷与建筑结合，派对欢乐</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.17.1</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1iBwsznE6o/?t=42" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="speed_builders" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">速建大师</span>
-                        <span class="name-en">Speed Builders</span>
-                    </div>
-                    <div class="map-desc">限时建筑挑战，看谁建得又快又好</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21.4</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1iBwsznE6o/?t=84" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="temple_topper" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">寺庙挑战</span>
-                        <span class="name-en">Temple Topper</span>
-                    </div>
-                    <div class="map-desc">寺庙建筑挑战，考验技巧</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21.4</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1iBwsznE6o/?t=126" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="lucky_pillar" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">幸运之柱</span>
-                        <span class="name-en">Lucky Pillar</span>
-                    </div>
-                    <div class="map-desc">幸运之柱建筑挑战，看谁运气好</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21.10</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1iBwsznE6o/?t=168" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 友尽小游戏类 -->
-        <div class="vote-section">
-            <h2 class="category-title" style="border-color: #e74c3c;">💀 友尽小游戏类</h2>
-            
-            <div class="map-card" data-map="hundred_ways_die" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">100种死法</span>
-                        <span class="name-en">100 Ways To Die!</span>
-                    </div>
-                    <div class="map-desc">100种奇葩死法，看谁死得最快</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21.5</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1LN7AzbEVj/?t=0" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="would_you_rather" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">你会选哪个</span>
-                        <span class="name-en">Would You Rather</span>
-                    </div>
-                    <div class="map-desc">两难选择，看谁的选择更奇葩</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.20.1</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1LN7AzbEVj/?t=30" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="arrow_shoot" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">箭有虚发</span>
-                        <span class="name-en">Arrow Shooting</span>
-                    </div>
-                    <div class="map-desc">射箭挑战，看谁箭法准</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.18.X</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1LN7AzbEVj/?t=60" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="dodge_all" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">Dodge All</span>
-                        <span class="name-en">Dodge All</span>
-                    </div>
-                    <div class="map-desc">躲避挑战，看谁能躲到最后</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.18.X</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1LN7AzbEVj/?t=90" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="boom_doom" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">Boom Doom</span>
-                        <span class="name-en">Boom Doom</span>
-                    </div>
-                    <div class="map-desc">炸弹挑战，看谁炸得最准</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.20.1</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1LN7AzbEVj/?t=120" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 多人对抗类 -->
-        <div class="vote-section">
-            <h2 class="category-title" style="border-color: #2ecc71;">⚔️ 多人对抗类</h2>
-            
-            <div class="map-card" data-map="halloween_chaos" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">万圣节大乱斗</span>
-                        <span class="name-en">Halloween Chaos</span>
-                    </div>
-                    <div class="map-desc">万圣节主题大乱斗，节日欢乐</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.19.2</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1kxnhz4EyT/?t=0" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="war_games" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">战争模拟器</span>
-                        <span class="name-en">War Games</span>
-                    </div>
-                    <div class="map-desc">模拟战争对抗，策略与操作并重</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21.8</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1kxnhz4EyT/?t=30" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="honey_missile" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">蜂蜜导弹大战</span>
-                        <span class="name-en">Honey Missile Wars</span>
-                    </div>
-                    <div class="map-desc">蜂蜜导弹大战，欢乐射击</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.20.6</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1kxnhz4EyT/?t=60" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="tactical_gaggle" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">战术小队</span>
-                        <span class="name-en">Tactical Gaggle</span>
-                    </div>
-                    <div class="map-desc">战术射击对抗，团队协作</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.18.1</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1kxnhz4EyT/?t=90" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-card" data-map="the_chasers" onclick="toggleSelect(this)">
-                <div class="checkbox-custom"></div>
-                <div class="map-info">
-                    <div class="map-name">
-                        <span class="name-zh">追击者</span>
-                        <span class="name-en">The Chasers</span>
-                    </div>
-                    <div class="map-desc">追击与逃跑，紧张刺激</div>
-                    <div class="map-meta">
-                        <span class="meta-item players">👥 多人</span>
-                        <span class="meta-item version">📦 1.21</span>
-                        <a class="meta-item video" href="https://www.bilibili.com/video/BV1kxnhz4EyT/?t=120" target="_blank">🎬 视频</a>
-                    </div>
-                </div>
-            </div>
+        <!-- 动态地图网格 -->
+        <div id="mapGrid">
+            <div class="loading-spinner">⏳ 正在加载地图数据...</div>
         </div>
 
         <div class="submit-section">
@@ -1176,75 +759,99 @@
     <!-- 结果/汇总页面（动态生成内容） -->
     <div class="container result-container" id="resultContainer"></div>
 
+    <!-- 地图管理页面 -->
+    <div class="container result-container" id="adminContainer"></div>
+
     <div class="toast" id="toast"></div>
 
     <script>
         // ============================================================
         // ⚙️ 配置区域 - 请先完成以下设置再部署！
         // ============================================================
-        // 步骤1: 访问 https://jsonbin.io/ 注册免费账号
-        // 步骤2: 创建一个新 Bin，Content 填入: {"votes":[]}
-        // 步骤3: 复制下方两个值
-        // ============================================================
         const CONFIG = {
-            // 你的 API Access Key (注册后在 Dashboard 获取)
             apiKey: '$2a$10$adU2TcYAO4JNso1udgfJl.OdajBKnqa5PimIXE8mzPO64OKeM4BK2',
-            // 你的 Bin ID (创建 Bin 后在 URL 中获取，形如 xxxxxxxxxx)
             binId: '69ffc3fcadc21f119a793cbf',
-            // API 地址 (一般不用改)
             apiUrl: 'https://api.jsonbin.io/v3'
         };
         // ============================================================
 
-        // 地图数据
-        const mapData = {
-            splatoon: { name: '喷射战士MC版', category: '射击/对战' },
-            fangkuai: { name: '方块喷喷喷', category: '射击/对战' },
-            mace: { name: '锤子大乱斗', category: '射击/对战' },
-            ctf: { name: '终极夺旗战', category: '团队对抗' },
-            wii: { name: 'Wii派对棋盘岛', category: '派对/棋盘' },
-            bingo: { name: '终极宾果', category: '派对/棋盘' },
-            floor: { name: '100层生存挑战', category: '闯关/挑战' },
-            skyline: { name: '天际冲刺', category: '闯关/挑战' },
-            scaredy_cat: { name: '躲猫猫：Scaredy Cat', category: '躲猫猫' },
-            hide_seek_remastered: { name: '躲猫猫重制版', category: '躲猫猫' },
-            japanese_hide_seek: { name: '日式躲猫猫', category: '躲猫猫' },
-            cat_mouse: { name: '猫抓老鼠', category: '躲猫猫' },
-            block_hide_seek: { name: '方块躲猫猫', category: '躲猫猫' },
-            lucky_strength: { name: '幸运与实力', category: '幸运方块' },
-            lucky_block_racing: { name: '幸运方块赛道', category: '幸运方块' },
-            lucky_oneblock: { name: '幸运方块空岛', category: '幸运方块' },
-            atmos: { name: 'ATMOS', category: '冒险/探索' },
-            yoodexy: { name: 'Yoodexy的模组', category: '冒险/探索' },
-            doors: { name: 'Doors', category: '冒险/探索' },
-            final_paradox: { name: '终极悖论', category: '冒险/探索' },
-            enzzo_kebab: { name: 'Enzzo Kebab', category: '冒险/探索' },
-            building_game: { name: '建筑游戏重制版', category: '建筑比赛' },
-            parkourse_party: { name: '跑酷派对', category: '建筑比赛' },
-            speed_builders: { name: '速建大师', category: '建筑比赛' },
-            temple_topper: { name: '寺庙挑战', category: '建筑比赛' },
-            lucky_pillar: { name: '幸运之柱', category: '建筑比赛' },
-            hundred_ways_die: { name: '100种死法', category: '友尽小游戏' },
-            would_you_rather: { name: '你会选哪个', category: '友尽小游戏' },
-            arrow_shoot: { name: '箭有虚发', category: '友尽小游戏' },
-            dodge_all: { name: 'Dodge All', category: '友尽小游戏' },
-            boom_doom: { name: 'Boom Doom', category: '友尽小游戏' },
-            halloween_chaos: { name: '万圣节大乱斗', category: '多人对抗' },
-            war_games: { name: '战争模拟器', category: '多人对抗' },
-            honey_missile: { name: '蜂蜜导弹大战', category: '多人对抗' },
-            tactical_gaggle: { name: '战术小队', category: '多人对抗' },
-            the_chasers: { name: '追击者', category: '多人对抗' }
+        // ---- 分类元数据 ----
+        const CATEGORY_META = {
+            '射击/对战': { icon: '🏹', cssClass: 'shooting', title: '射击 / 对战类' },
+            '团队对抗': { icon: '🎯', cssClass: 'team', title: '团队对抗类' },
+            '派对/棋盘': { icon: '🎲', cssClass: 'party', title: '派对 / 棋盘游戏类' },
+            '闯关/挑战': { icon: '🏃', cssClass: 'parkour', title: '闯关 / 生存挑战类' },
+            '躲猫猫': { icon: '🐱', borderColor: '#9b59b6', title: '躲猫猫类' },
+            '幸运方块': { icon: '🎲', borderColor: '#f1c40f', title: '幸运方块类' },
+            '冒险/探索': { icon: '🗡️', borderColor: '#e67e22', title: '冒险/探索类' },
+            '建筑比赛': { icon: '🏗️', borderColor: '#1abc9c', title: '建筑比赛类' },
+            '友尽小游戏': { icon: '💀', borderColor: '#e74c3c', title: '友尽小游戏类' },
+            '多人对抗': { icon: '⚔️', borderColor: '#2ecc71', title: '多人对抗类' }
         };
 
+        // ---- 默认地图数据（内置地图）----
+        const DEFAULT_MAPS = {
+            splatoon: { name: '喷射战士MC版', nameEn: 'Splatoon in Minecraft', category: '射击/对战', desc: 'MC版喷射战士，涂地盘+射击对战，多人欢乐对抗', players: '👥 不限人数', version: '📦 1.21', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=15', order: 1 },
+            fangkuai: { name: '方块喷喷喷', nameEn: 'FangKuai PenPenPen', category: '射击/对战', desc: '国产喷射战士风格地图，需要搭配特定整合包游玩', players: '👥 多人', version: '📦 需整合包', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=20', order: 2 },
+            mace: { name: '锤子大乱斗', nameEn: 'MACE BLASTERS', category: '射击/对战', desc: '使用重锤进行多人乱斗，击飞对手得分，简单刺激', players: '👥 2-6人最佳', version: '📦 1.21.5-6', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=90', order: 3 },
+            ctf: { name: '终极夺旗战', nameEn: 'Ultimate Capture the Flag', category: '团队对抗', desc: '经典夺旗模式，分队对抗抢夺对方旗帜带回己方基地', players: '👥 多人（建议4+）', version: '📦 1.21.5', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=120', order: 4 },
+            wii: { name: 'Wii派对棋盘岛', nameEn: 'Wii Party: Board Game Island', category: '派对/棋盘', desc: '还原Wii派对经典玩法，棋盘前进+各种小游戏，派对感满满', players: '👥 仅限4人', version: '📦 1.21.1', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=55', order: 5 },
+            bingo: { name: '终极宾果', nameEn: 'Yet Another Bingo: Ultimate', category: '派对/棋盘', desc: '最贴近MC原版的宾果小游戏！收集指定物品完成Bingo卡，合作又有竞争', players: '👥 多人', version: '📦 整合包', videoUrl: 'https://www.bilibili.com/video/BV1NZqpBYEVM/?t=0', order: 6 },
+            floor: { name: '100层生存挑战', nameEn: '100 Floor Survival', category: '闯关/挑战', desc: '逐层闯关的生存挑战，难度递增，考验各种MC技巧', players: '👥 4人最佳', version: '📦 1.19', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=155', order: 7 },
+            skyline: { name: '天际冲刺', nameEn: 'Skyline Sprint', category: '闯关/挑战', desc: '高空跑酷冲刺挑战，考验操作和反应速度', players: '👥 多人', version: '📦 1.20.2', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=175', order: 8 },
+            scaredy_cat: { name: 'Scaredy Cat', nameEn: 'Hide & Seek', category: '躲猫猫', desc: '经典躲猫猫玩法，猫抓老鼠，多人欢乐追逐', players: '👥 多人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=0', order: 9 },
+            hide_seek_remastered: { name: '躲猫猫重制版', nameEn: 'Hide and Seek Remastered', category: '躲猫猫', desc: '经典躲猫猫重制版，优化玩法，更多乐趣', players: '👥 多人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=40', order: 10 },
+            japanese_hide_seek: { name: '日式躲猫猫', nameEn: 'Japanese Hide and Seek', category: '躲猫猫', desc: '日式风格躲猫猫，独特的场景设计', players: '👥 多人', version: '📦 1.20.4', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=80', order: 11 },
+            cat_mouse: { name: '猫抓老鼠', nameEn: 'Cat and Mouse', category: '躲猫猫', desc: '猫抓老鼠追逐战，紧张刺激的多人对战', players: '👥 多人', version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=120', order: 12 },
+            block_hide_seek: { name: '方块躲猫猫', nameEn: 'Block Hide and Seek', category: '躲猫猫', desc: '方块风格躲猫猫，变成方块躲藏', players: '👥 多人', version: '📦 1.16.5', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=160', order: 13 },
+            lucky_strength: { name: '幸运与实力', nameEn: 'Lucky and Strength', category: '幸运方块', desc: '幸运与实力并存，看谁运气好实力强', players: '👥 2-4人', version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=0', order: 14 },
+            lucky_block_racing: { name: '幸运方块赛道', nameEn: 'Lucky Block Racing', category: '幸运方块', desc: '幸运方块竞速赛，看谁先到终点', players: '👥 4-6人', version: '📦 需特定整合包', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=37', order: 15 },
+            lucky_oneblock: { name: '幸运方块空岛', nameEn: 'Lucky Oneblock', category: '幸运方块', desc: '幸运方块空岛生存，看谁能活到最后', players: '👥 1-4人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=74', order: 16 },
+            atmos: { name: 'ATMOS', nameEn: 'ATMOS', category: '冒险/探索', desc: '肉鸽冒险地图，随机生成关卡', players: '👥 2-4人', version: '📦 需特定整合包', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=0', order: 17 },
+            yoodexy: { name: 'Yoodexy的模组', nameEn: "Yoodexy's Mod", category: '冒险/探索', desc: '模组冒险地图，独特玩法体验', players: '👥 5-6人', version: '📦 1.21.8', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=48', order: 18 },
+            doors: { name: 'Doors', nameEn: 'Doors', category: '冒险/探索', desc: '门后世界冒险，探索未知', players: '👥 多人', version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=96', order: 19 },
+            final_paradox: { name: '终极悖论', nameEn: 'FINAL PARADOX', category: '冒险/探索', desc: '终极悖论冒险，烧脑解密', players: '👥 多人', version: '📦 1.16.5', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=144', order: 20 },
+            enzzo_kebab: { name: 'Enzzo Kebab', nameEn: 'Enzzo Kebab', category: '冒险/探索', desc: '烤肉店冒险，独特主题体验', players: '👥 多人', version: '📦 1.20.4', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=192', order: 21 },
+            building_game: { name: '建筑游戏重制版', nameEn: 'Building Game Redux', category: '建筑比赛', desc: '经典建筑游戏重制版，比拼创意', players: '👥 多人', version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=0', order: 22 },
+            parkourse_party: { name: '跑酷派对', nameEn: 'Parkourse Party', category: '建筑比赛', desc: '跑酷与建筑结合，派对欢乐', players: '👥 多人', version: '📦 1.17.1', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=42', order: 23 },
+            speed_builders: { name: '速建大师', nameEn: 'Speed Builders', category: '建筑比赛', desc: '限时建筑挑战，看谁建得又快又好', players: '👥 多人', version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=84', order: 24 },
+            temple_topper: { name: '寺庙挑战', nameEn: 'Temple Topper', category: '建筑比赛', desc: '寺庙建筑挑战，考验技巧', players: '👥 多人', version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=126', order: 25 },
+            lucky_pillar: { name: '幸运之柱', nameEn: 'Lucky Pillar', category: '建筑比赛', desc: '幸运之柱建筑挑战，看谁运气好', players: '👥 多人', version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=168', order: 26 },
+            hundred_ways_die: { name: '100种死法', nameEn: '100 Ways To Die!', category: '友尽小游戏', desc: '100种奇葩死法，看谁死得最快', players: '👥 多人', version: '📦 1.21.5', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=0', order: 27 },
+            would_you_rather: { name: '你会选哪个', nameEn: 'Would You Rather', category: '友尽小游戏', desc: '两难选择，看谁的选择更奇葩', players: '👥 多人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=30', order: 28 },
+            arrow_shoot: { name: '箭有虚发', nameEn: 'Arrow Shooting', category: '友尽小游戏', desc: '射箭挑战，看谁箭法准', players: '👥 多人', version: '📦 1.18.X', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=60', order: 29 },
+            dodge_all: { name: 'Dodge All', nameEn: 'Dodge All', category: '友尽小游戏', desc: '躲避挑战，看谁能躲到最后', players: '👥 多人', version: '📦 1.18.X', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=90', order: 30 },
+            boom_doom: { name: 'Boom Doom', nameEn: 'Boom Doom', category: '友尽小游戏', desc: '炸弹挑战，看谁炸得最准', players: '👥 多人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=120', order: 31 },
+            halloween_chaos: { name: '万圣节大乱斗', nameEn: 'Halloween Chaos', category: '多人对抗', desc: '万圣节主题大乱斗，节日欢乐', players: '👥 多人', version: '📦 1.19.2', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=0', order: 32 },
+            war_games: { name: '战争模拟器', nameEn: 'War Games', category: '多人对抗', desc: '模拟战争对抗，策略与操作并重', players: '👥 多人', version: '📦 1.21.8', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=30', order: 33 },
+            honey_missile: { name: '蜂蜜导弹大战', nameEn: 'Honey Missile Wars', category: '多人对抗', desc: '蜂蜜导弹大战，欢乐射击', players: '👥 多人', version: '📦 1.20.6', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=60', order: 34 },
+            tactical_gaggle: { name: '战术小队', nameEn: 'Tactical Gaggle', category: '多人对抗', desc: '战术射击对抗，团队协作', players: '👥 多人', version: '📦 1.18.1', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=90', order: 35 },
+            the_chasers: { name: '追击者', nameEn: 'The Chasers', category: '多人对抗', desc: '追击与逃跑，紧张刺激', players: '👥 多人', version: '📦 1.21', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=120', order: 36 }
+        };
+
+        // ---- 运行时地图数据（从 JSONBin 加载并合并）----
+        let currentMapData = {};
+
         // ---- JSONBin API 工具函数 ----
-        async function fetchVotes() {
+        async function fetchAllData() {
             try {
                 const resp = await fetch(`${CONFIG.apiUrl}/b/${CONFIG.binId}/latest`, {
                     headers: { 'X-Access-Key': CONFIG.apiKey }
                 });
                 if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
                 const data = await resp.json();
-                return data.record.votes || [];
+                return data.record;
+            } catch (e) {
+                console.error('获取数据失败:', e);
+                return null;
+            }
+        }
+
+        async function fetchVotes() {
+            try {
+                const allData = await fetchAllData();
+                if (!allData) return null;
+                return allData.votes || [];
             } catch (e) {
                 console.error('获取投票失败:', e);
                 return null;
@@ -1253,9 +860,11 @@
 
         async function saveVote(voteObj) {
             try {
-                // 先读取现有投票
-                const votes = await fetchVotes();
-                if (votes === null) throw new Error('无法读取投票数据');
+                const allData = await fetchAllData();
+                if (!allData) throw new Error('无法读取数据');
+
+                const votes = allData.votes || [];
+                const maps = allData.maps || null;
 
                 // 检查是否已投票（同名不能重复投）
                 if (votes.some(v => v.name === voteObj.name)) {
@@ -1271,7 +880,7 @@
                         'Content-Type': 'application/json',
                         'X-Access-Key': CONFIG.apiKey
                     },
-                    body: JSON.stringify({ votes })
+                    body: JSON.stringify({ votes, maps })
                 });
                 if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
                 return { ok: true };
@@ -1279,6 +888,134 @@
                 console.error('保存投票失败:', e);
                 return { ok: false, reason: 'network' };
             }
+        }
+
+        // ---- 地图数据加载与合并 ----
+        async function loadMapData() {
+            const allData = await fetchAllData();
+            if (!allData) {
+                // 加载失败，使用默认地图
+                currentMapData = JSON.parse(JSON.stringify(DEFAULT_MAPS));
+                return;
+            }
+
+            // 合并：默认地图 + 云端自定义地图（云端覆盖同ID的默认地图）
+            const merged = JSON.parse(JSON.stringify(DEFAULT_MAPS));
+            const cloudMaps = allData.maps || {};
+
+            for (const [id, data] of Object.entries(cloudMaps)) {
+                merged[id] = data;
+            }
+
+            // 按 order 排序（先收集，再排序后重建对象）
+            const sorted = Object.entries(merged).sort((a, b) => (a[1].order || 9999) - (b[1].order || 9999));
+            currentMapData = {};
+            for (const [id, data] of sorted) {
+                currentMapData[id] = data;
+            }
+        }
+
+        async function saveMapData(newMapData) {
+            try {
+                const allData = await fetchAllData();
+                const votes = (allData && allData.votes) || [];
+
+                const resp = await fetch(`${CONFIG.apiUrl}/b/${CONFIG.binId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Access-Key': CONFIG.apiKey
+                    },
+                    body: JSON.stringify({ votes, maps: newMapData })
+                });
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                return true;
+            } catch (e) {
+                console.error('保存地图数据失败:', e);
+                return false;
+            }
+        }
+
+        // ---- 动态渲染地图 ----
+        function renderMapGrid() {
+            const grid = document.getElementById('mapGrid');
+            if (!grid) return;
+
+            // 按分类分组
+            const categories = {};
+            for (const [id, data] of Object.entries(currentMapData)) {
+                const cat = data.category || '其他';
+                if (!categories[cat]) categories[cat] = [];
+                categories[cat].push({ id, ...data });
+            }
+
+            // 获取分类出现顺序（按order排列的首次出现）
+            const catOrder = [];
+            for (const [id, data] of Object.entries(currentMapData)) {
+                const cat = data.category || '其他';
+                if (!catOrder.includes(cat)) catOrder.push(cat);
+            }
+
+            let html = '';
+            for (const cat of catOrder) {
+                const meta = CATEGORY_META[cat] || { icon: '📁', title: cat + '类' };
+                const borderStyle = meta.borderColor
+                    ? `style="border-color: ${meta.borderColor};"`
+                    : '';
+
+                html += `<div class="vote-section">`;
+                html += `<h2 class="category-title ${meta.cssClass || ''}" ${borderStyle}>${meta.icon} ${meta.title}</h2>`;
+
+                for (const map of categories[cat]) {
+                    html += renderMapCard(map);
+                }
+
+                html += `</div>`;
+            }
+
+            grid.innerHTML = html;
+
+            // 渲染后重新应用状态
+            updatePlayedStates();
+            addPlayedButtons();
+        }
+
+        function renderMapCard(map) {
+            const videoHtml = map.videoUrl
+                ? `<a class="meta-item video" href="${escapeHtml(map.videoUrl)}" target="_blank" onclick="event.stopPropagation()">🎬 视频</a>`
+                : '';
+
+            return `
+                <div class="map-card" data-map="${escapeHtml(map.id)}" onclick="toggleSelect(this)">
+                    <div class="checkbox-custom"></div>
+                    <div class="map-info">
+                        <div class="map-name">
+                            <span class="name-zh">${escapeHtml(map.name)}</span>
+                            <span class="name-en">${escapeHtml(map.nameEn || '')}</span>
+                        </div>
+                        <div class="map-desc">${escapeHtml(map.desc || '')}</div>
+                        <div class="map-meta">
+                            <span class="meta-item players">${escapeHtml(map.players || '👥 多人')}</span>
+                            <span class="meta-item version">${escapeHtml(map.version || '📦 最新版')}</span>
+                            ${videoHtml}
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // ---- 简化的 mapData 兼容对象（供结果页面使用）----
+        function getMapLookup() {
+            const lookup = {};
+            for (const [id, data] of Object.entries(currentMapData)) {
+                lookup[id] = { name: data.name, category: data.category };
+            }
+            return lookup;
         }
 
         // ---- 选择逻辑 ----
@@ -1328,8 +1065,10 @@
             btn.disabled = false;
             btn.textContent = '🗳️ 提交投票';
 
+            const mapLookup = getMapLookup();
+
             if (result.ok) {
-                showVoteSuccess(name, selectedMaps);
+                showVoteSuccess(name, selectedMaps, mapLookup);
             } else if (result.reason === 'duplicate') {
                 showToast('⚠️ 该昵称已投过票，请换个名字！');
             } else {
@@ -1337,7 +1076,7 @@
             }
         }
 
-        function showVoteSuccess(name, maps) {
+        function showVoteSuccess(name, maps, mapLookup) {
             document.getElementById('voteContainer').style.display = 'none';
             const rc = document.getElementById('resultContainer');
             rc.style.display = 'block';
@@ -1346,10 +1085,10 @@
                     <h2>✅ 投票成功！</h2>
                 </div>
                 <div class="vote-section" style="text-align: center;">
-                    <h3 style="margin-bottom: 20px; color: #00d2ff;">👤 ${name} 的投票</h3>
+                    <h3 style="margin-bottom: 20px; color: #00d2ff;">👤 ${escapeHtml(name)} 的投票</h3>
                     <div style="margin-bottom: 25px;">
                         <p style="color: #8892b0; margin-bottom: 10px;">你选择了：</p>
-                        ${maps.map(id => '<span style="background: rgba(0,210,255,0.2); padding: 8px 15px; border-radius: 20px; margin: 5px; display: inline-block;">' + mapData[id].name + '</span>').join('')}
+                        ${maps.map(id => '<span style="background: rgba(0,210,255,0.2); padding: 8px 15px; border-radius: 20px; margin: 5px; display: inline-block;">' + escapeHtml((mapLookup[id] && mapLookup[id].name) || id) + '</span>').join('')}
                     </div>
                     <p style="color: #6bcb77; margin-bottom: 20px;">🎉 投票已记录，等待主持人公布结果！</p>
                     <button class="submit-btn" onclick="showResultsPage()" style="margin-right: 15px;">📊 查看实时投票结果</button>
@@ -1361,6 +1100,7 @@
         // ---- 实时结果页面 ----
         async function showResultsPage() {
             document.getElementById('voteContainer').style.display = 'none';
+            document.getElementById('adminContainer').style.display = 'none';
             const rc = document.getElementById('resultContainer');
             rc.style.display = 'block';
             rc.innerHTML = '<div class="result-header"><h2>⏳ 加载中...</h2></div>';
@@ -1383,6 +1123,7 @@
 
             const sorted = Object.entries(voteCounts).sort((a, b) => b[1] - a[1]);
             const maxVotes = sorted.length > 0 ? sorted[0][1] : 1;
+            const mapLookup = getMapLookup();
 
             container.innerHTML = `
                 <div class="result-header">
@@ -1395,16 +1136,18 @@
                         const rankClass = idx === 0 ? 'gold' : idx === 1 ? 'silver' : idx === 2 ? 'bronze' : '';
                         const rankEmoji = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : '#' + (idx + 1);
                         const pct = (count / maxVotes * 100).toFixed(0);
-                        return '<div class="result-card"><div class="rank ' + rankClass + '">' + rankEmoji + '</div><div class="result-info"><div class="result-name">' + mapData[mapId].name + ' <span style="color:#8892b0;font-size:0.85em;">(' + mapData[mapId].category + ')</span></div><div class="vote-bar"><div class="vote-fill" style="width:' + pct + '%"><span class="vote-count">' + count + '票</span></div></div></div></div>';
+                        const mapName = (mapLookup[mapId] && mapLookup[mapId].name) || mapId;
+                        const mapCat = (mapLookup[mapId] && mapLookup[mapId].category) || '未知';
+                        return '<div class="result-card"><div class="rank ' + rankClass + '">' + rankEmoji + '</div><div class="result-info"><div class="result-name">' + escapeHtml(mapName) + ' <span style="color:#8892b0;font-size:0.85em;">(' + escapeHtml(mapCat) + ')</span></div><div class="vote-bar"><div class="vote-fill" style="width:' + pct + '%"><span class="vote-count">' + count + '票</span></div></div></div></div>';
                     }).join('')}
 
                     <div class="voters-list" style="margin-top: 25px;">
                         <h3>👥 投票详情</h3>
-                        ${votes.map(v => '<div class="voter-item"><div class="voter-name">👤 ' + v.name + '</div><div class="voter-maps">选择了：' + v.maps.map(id => mapData[id].name).join('、') + '</div></div>').join('')}
+                        ${votes.map(v => '<div class="voter-item"><div class="voter-name">👤 ' + escapeHtml(v.name) + '</div><div class="voter-maps">选择了：' + v.maps.map(id => escapeHtml((mapLookup[id] && mapLookup[id].name) || id)).join('、') + '</div></div>').join('')}
                     </div>
 
                     <div style="text-align: center; margin-top: 25px;">
-                        <button class="copy-btn" onclick="copyResults(${JSON.stringify(sorted).replace(/"/g, '&quot;')}, ${votes.length})">📋 复制结果</button>
+                        <button class="copy-btn" onclick="copyResults(${JSON.stringify(sorted).replace(/\"/g, '&quot;')}, ${votes.length})">📋 复制结果</button>
                         <button class="back-btn" onclick="location.reload()" style="margin-left: 15px;">返回</button>
                         <button class="random-btn" onclick="clearAllVotes()" style="margin-left: 15px; font-size: 0.9em; padding: 12px 25px;">🗑️ 清空所有投票</button>
                     </div>
@@ -1413,10 +1156,12 @@
         }
 
         function copyResults(sorted, total) {
+            const mapLookup = getMapLookup();
             let text = '🎮 MC多人地图投票结果\n========================\n共 ' + total + ' 人参与投票\n\n';
             sorted.forEach(([mapId, count], i) => {
                 const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : (i+1) + '.';
-                text += medal + ' ' + mapData[mapId].name + ' - ' + count + '票\n';
+                const name = (mapLookup[mapId] && mapLookup[mapId].name) || mapId;
+                text += medal + ' ' + name + ' - ' + count + '票\n';
             });
             navigator.clipboard.writeText(text).then(() => showToast('结果已复制！'));
         }
@@ -1502,13 +1247,15 @@
         async function clearAllVotes() {
             if (!confirm('⚠️ 确认清空所有投票数据？此操作不可恢复！')) return;
             try {
+                const allData = await fetchAllData();
+                const maps = (allData && allData.maps) || null;
                 const resp = await fetch(`${CONFIG.apiUrl}/b/${CONFIG.binId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-Access-Key': CONFIG.apiKey
                     },
-                    body: JSON.stringify({ votes: [] })
+                    body: JSON.stringify({ votes: [], maps })
                 });
                 if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
                 showToast('✅ 已清空所有投票！');
@@ -1516,6 +1263,207 @@
             } catch (e) {
                 console.error('清空失败:', e);
                 showToast('❌ 清空失败，请重试');
+            }
+        }
+
+        // ---- 地图管理页面 ----
+        function showAdminPage() {
+            document.getElementById('voteContainer').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'none';
+            const ac = document.getElementById('adminContainer');
+            ac.style.display = 'block';
+            renderAdminPage();
+        }
+
+        function backToVote() {
+            document.getElementById('adminContainer').style.display = 'none';
+            document.getElementById('voteContainer').style.display = 'block';
+        }
+
+        function renderAdminPage() {
+            const ac = document.getElementById('adminContainer');
+
+            // 获取所有现有分类
+            const categories = [...new Set(Object.values(currentMapData).map(m => m.category))].sort();
+
+            // 按分类分组展示
+            const grouped = {};
+            for (const [id, data] of Object.entries(currentMapData)) {
+                const cat = data.category || '其他';
+                if (!grouped[cat]) grouped[cat] = [];
+                grouped[cat].push({ id, ...data });
+            }
+
+            let listHtml = '';
+            for (const [cat, maps] of Object.entries(grouped)) {
+                const meta = CATEGORY_META[cat] || { icon: '📁' };
+                listHtml += `<div class="admin-map-category">`;
+                listHtml += `<h4>${meta.icon} ${escapeHtml(cat)} (${maps.length})</h4>`;
+                for (const map of maps) {
+                    listHtml += `
+                        <div class="admin-map-item">
+                            <div class="map-item-info">
+                                <div class="map-item-name">${escapeHtml(map.name)} <span style="color:#8892b0;font-size:0.85em;">${escapeHtml(map.nameEn || '')}</span></div>
+                                <div class="map-item-id">ID: ${escapeHtml(map.id)}</div>
+                            </div>
+                            <button class="admin-delete-btn" onclick="deleteMap('${escapeHtml(map.id)}')">🗑️ 删除</button>
+                        </div>`;
+                }
+                listHtml += `</div>`;
+            }
+
+            // 构建分类下拉选项
+            let catOptions = categories.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+            catOptions += `<option value="__custom__">➕ 自定义分类...</option>`;
+
+            ac.innerHTML = `
+                <div class="result-header">
+                    <h2>⚙️ 地图管理</h2>
+                    <p style="color: #8892b0; margin-top: 10px;">添加或删除地图，共 ${Object.keys(currentMapData).length} 张地图</p>
+                </div>
+
+                <div class="admin-form">
+                    <h3>➕ 添加新地图</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>地图 ID（英文标识符）</label>
+                            <input type="text" id="adminMapId" placeholder="例如: my_new_map" maxlength="50">
+                        </div>
+                        <div class="form-group">
+                            <label>中文名称</label>
+                            <input type="text" id="adminMapName" placeholder="例如: 我的新地图" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>英文名称</label>
+                            <input type="text" id="adminMapNameEn" placeholder="例如: My New Map" maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label>分类</label>
+                            <select id="adminMapCategory" onchange="toggleCustomCategory(this)">
+                                ${catOptions}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row" id="customCategoryRow" style="display:none;">
+                        <div class="form-group">
+                            <label>自定义分类名称</label>
+                            <input type="text" id="adminMapCategoryCustom" placeholder="例如: 自定义分类" maxlength="20">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>描述</label>
+                            <input type="text" id="adminMapDesc" placeholder="地图简要描述" maxlength="200">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>人数信息</label>
+                            <input type="text" id="adminMapPlayers" placeholder="例如: 👥 2-4人" maxlength="30">
+                        </div>
+                        <div class="form-group">
+                            <label>版本信息</label>
+                            <input type="text" id="adminMapVersion" placeholder="例如: 📦 1.21" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>视频链接（Bilibili等）</label>
+                            <input type="text" id="adminMapVideo" placeholder="https://www.bilibili.com/video/..." maxlength="200">
+                        </div>
+                    </div>
+                    <button class="admin-add-btn" onclick="addMap()">✅ 添加地图</button>
+                </div>
+
+                <div class="admin-map-list">
+                    <h3>📋 当前地图列表</h3>
+                    ${listHtml}
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="admin-back-btn" onclick="backToVote()">← 返回投票页</button>
+                </div>
+            `;
+        }
+
+        function toggleCustomCategory(select) {
+            const row = document.getElementById('customCategoryRow');
+            row.style.display = select.value === '__custom__' ? 'flex' : 'none';
+        }
+
+        async function addMap() {
+            const id = document.getElementById('adminMapId').value.trim();
+            const name = document.getElementById('adminMapName').value.trim();
+            const nameEn = document.getElementById('adminMapNameEn').value.trim();
+            let category = document.getElementById('adminMapCategory').value;
+            const desc = document.getElementById('adminMapDesc').value.trim();
+            const players = document.getElementById('adminMapPlayers').value.trim();
+            const version = document.getElementById('adminMapVersion').value.trim();
+            const videoUrl = document.getElementById('adminMapVideo').value.trim();
+
+            if (!id) { showToast('请输入地图ID！'); return; }
+            if (!name) { showToast('请输入中文名称！'); return; }
+            if (!category || category === '__custom__') {
+                category = document.getElementById('adminMapCategoryCustom').value.trim();
+                if (!category) { showToast('请输入自定义分类名称！'); return; }
+            }
+
+            // 验证ID格式（只允许字母数字和下划线）
+            if (!/^[a-zA-Z0-9_]+$/.test(id)) {
+                showToast('地图ID只能包含英文字母、数字和下划线！');
+                return;
+            }
+
+            if (currentMapData[id]) {
+                showToast('⚠️ 该地图ID已存在！请使用其他ID');
+                return;
+            }
+
+            // 计算新的order（取最大值+1）
+            const maxOrder = Math.max(0, ...Object.values(currentMapData).map(m => m.order || 0));
+
+            // 添加到当前数据
+            currentMapData[id] = {
+                name,
+                nameEn: nameEn || name,
+                category,
+                desc: desc || '',
+                players: players || '👥 多人',
+                version: version || '📦 最新版',
+                videoUrl: videoUrl || '',
+                order: maxOrder + 1
+            };
+
+            // 保存到云端
+            const ok = await saveMapData(currentMapData);
+            if (ok) {
+                showToast('✅ 地图添加成功！');
+                renderMapGrid();
+                renderAdminPage();
+            } else {
+                // 回滚
+                delete currentMapData[id];
+                showToast('❌ 保存失败，请重试');
+            }
+        }
+
+        async function deleteMap(mapId) {
+            if (!confirm(`⚠️ 确认删除地图 "${(currentMapData[mapId] && currentMapData[mapId].name) || mapId}"？`)) return;
+
+            const deletedData = currentMapData[mapId];
+            delete currentMapData[mapId];
+
+            const ok = await saveMapData(currentMapData);
+            if (ok) {
+                showToast('✅ 地图已删除！');
+                renderMapGrid();
+                renderAdminPage();
+            } else {
+                // 回滚
+                currentMapData[mapId] = deletedData;
+                showToast('❌ 删除失败，请重试');
             }
         }
 
@@ -1528,12 +1476,16 @@
         }
 
         // ---- 初始化 ----
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             const hide = localStorage.getItem('mcMapHidePlayed') === 'true';
             const cb = document.getElementById('hidePlayed');
             if (cb) cb.checked = hide;
-            updatePlayedStates();
-            addPlayedButtons();
+
+            // 加载地图数据
+            await loadMapData();
+
+            // 渲染地图
+            renderMapGrid();
         });
     </script>
 </body>
