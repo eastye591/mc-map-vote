@@ -740,6 +740,27 @@
             <span style="color: #8892b0; font-size: 0.9em;">勾选后已游玩的地图将被隐藏</span>
         </div>
 
+        <div class="played-toggle" style="margin-top: 10px;">
+            <label style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                <span style="font-size:1.1em;">👥</span>
+                <span>按人数筛选：</span>
+                <select id="playerFilter" onchange="filterByPlayers()" style="background:#16213e;color:#ccd6f6;border:1px solid #233554;border-radius:8px;padding:6px 12px;font-size:0.9em;">
+                    <option value="0">不限人数</option>
+                    <option value="2">2人</option>
+                    <option value="3">3人</option>
+                    <option value="4">4人</option>
+                    <option value="5">5人</option>
+                    <option value="6">6人</option>
+                    <option value="8">8人</option>
+                    <option value="10">10人</option>
+                    <option value="12">12人</option>
+                    <option value="16">16人</option>
+                    <option value="20">20人</option>
+                </select>
+                <span id="playerFilterHint" style="color:#8892b0;font-size:0.85em;"></span>
+            </label>
+        </div>
+
         <input type="text" class="name-input" id="playerName" placeholder="输入你的昵称" maxlength="20">
 
         <!-- 动态地图网格 -->
@@ -792,48 +813,48 @@
 
         // ---- 默认地图数据（内置地图）----
         const DEFAULT_MAPS = {
-            splatoon: { name: '喷射战士MC版', nameEn: 'Splatoon in Minecraft', category: '射击/对战', desc: 'MC版喷射战士，涂地盘+射击对战，多人欢乐对抗', players: '👥 不限人数', version: '📦 1.21', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=15', order: 1 },
-            fangkuai: { name: '方块喷喷喷', nameEn: 'FangKuai PenPenPen', category: '射击/对战', desc: '国产喷射战士风格地图，需要搭配特定整合包游玩', players: '👥 多人', version: '📦 需整合包', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=20', order: 2 },
-            mace: { name: '锤子大乱斗', nameEn: 'MACE BLASTERS', category: '射击/对战', desc: '使用重锤进行多人乱斗，击飞对手得分，简单刺激', players: '👥 2-6人最佳', version: '📦 1.21.5-6', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=90', order: 3 },
-            ctf: { name: '终极夺旗战', nameEn: 'Ultimate Capture the Flag', category: '团队对抗', desc: '经典夺旗模式，分队对抗抢夺对方旗帜带回己方基地', players: '👥 多人（建议4+）', version: '📦 1.21.5', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=120', order: 4 },
-            wii: { name: 'Wii派对棋盘岛', nameEn: 'Wii Party: Board Game Island', category: '派对/棋盘', desc: '还原Wii派对经典玩法，棋盘前进+各种小游戏，派对感满满', players: '👥 仅限4人', version: '📦 1.21.1', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=55', order: 5 },
-            bingo: { name: '终极宾果', nameEn: 'Yet Another Bingo: Ultimate', category: '派对/棋盘', desc: '最贴近MC原版的宾果小游戏！收集指定物品完成Bingo卡，合作又有竞争', players: '👥 多人', version: '📦 整合包', videoUrl: 'https://www.bilibili.com/video/BV1NZqpBYEVM/?t=0', order: 6 },
-            floor: { name: '100层生存挑战', nameEn: '100 Floor Survival', category: '闯关/挑战', desc: '逐层闯关的生存挑战，难度递增，考验各种MC技巧', players: '👥 4人最佳', version: '📦 1.19', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=155', order: 7 },
-            skyline: { name: '天际冲刺', nameEn: 'Skyline Sprint', category: '闯关/挑战', desc: '高空跑酷冲刺挑战，考验操作和反应速度', players: '👥 多人', version: '📦 1.20.2', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=175', order: 8 },
-            scaredy_cat: { name: 'Scaredy Cat', nameEn: 'Hide & Seek', category: '躲猫猫', desc: '经典躲猫猫玩法，猫抓老鼠，多人欢乐追逐', players: '👥 多人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=0', order: 9 },
-            hide_seek_remastered: { name: '躲猫猫重制版', nameEn: 'Hide and Seek Remastered', category: '躲猫猫', desc: '经典躲猫猫重制版，优化玩法，更多乐趣', players: '👥 多人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=40', order: 10 },
-            japanese_hide_seek: { name: '日式躲猫猫', nameEn: 'Japanese Hide and Seek', category: '躲猫猫', desc: '日式风格躲猫猫，独特的场景设计', players: '👥 多人', version: '📦 1.20.4', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=80', order: 11 },
-            cat_mouse: { name: '猫抓老鼠', nameEn: 'Cat and Mouse', category: '躲猫猫', desc: '猫抓老鼠追逐战，紧张刺激的多人对战', players: '👥 多人', version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=120', order: 12 },
-            block_hide_seek: { name: '方块躲猫猫', nameEn: 'Block Hide and Seek', category: '躲猫猫', desc: '方块风格躲猫猫，变成方块躲藏', players: '👥 多人', version: '📦 1.16.5', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=160', order: 13 },
-            lucky_strength: { name: '幸运与实力', nameEn: 'Lucky and Strength', category: '幸运方块', desc: '幸运与实力并存，看谁运气好实力强', players: '👥 2-4人', version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=0', order: 14 },
-            lucky_block_racing: { name: '幸运方块赛道', nameEn: 'Lucky Block Racing', category: '幸运方块', desc: '幸运方块竞速赛，看谁先到终点', players: '👥 4-6人', version: '📦 需特定整合包', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=37', order: 15 },
-            lucky_oneblock: { name: '幸运方块空岛', nameEn: 'Lucky Oneblock', category: '幸运方块', desc: '幸运方块空岛生存，看谁能活到最后', players: '👥 1-4人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=74', order: 16 },
-            atmos: { name: 'ATMOS', nameEn: 'ATMOS', category: '冒险/探索', desc: '肉鸽冒险地图，随机生成关卡', players: '👥 2-4人', version: '📦 需特定整合包', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=0', order: 17 },
-            yoodexy: { name: 'Yoodexy的模组', nameEn: "Yoodexy's Mod", category: '冒险/探索', desc: '模组冒险地图，独特玩法体验', players: '👥 5-6人', version: '📦 1.21.8', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=48', order: 18 },
-            doors: { name: 'Doors', nameEn: 'Doors', category: '冒险/探索', desc: '门后世界冒险，探索未知', players: '👥 多人', version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=96', order: 19 },
-            final_paradox: { name: '终极悖论', nameEn: 'FINAL PARADOX', category: '冒险/探索', desc: '终极悖论冒险，烧脑解密', players: '👥 多人', version: '📦 1.16.5', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=144', order: 20 },
-            enzzo_kebab: { name: 'Enzzo Kebab', nameEn: 'Enzzo Kebab', category: '冒险/探索', desc: '烤肉店冒险，独特主题体验', players: '👥 多人', version: '📦 1.20.4', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=192', order: 21 },
-            building_game: { name: '建筑游戏重制版', nameEn: 'Building Game Redux', category: '建筑比赛', desc: '经典建筑游戏重制版，比拼创意', players: '👥 多人', version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=0', order: 22 },
-            parkourse_party: { name: '跑酷派对', nameEn: 'Parkourse Party', category: '建筑比赛', desc: '跑酷与建筑结合，派对欢乐', players: '👥 多人', version: '📦 1.17.1', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=42', order: 23 },
-            speed_builders: { name: '速建大师', nameEn: 'Speed Builders', category: '建筑比赛', desc: '限时建筑挑战，看谁建得又快又好', players: '👥 多人', version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=84', order: 24 },
-            temple_topper: { name: '寺庙挑战', nameEn: 'Temple Topper', category: '建筑比赛', desc: '寺庙建筑挑战，考验技巧', players: '👥 多人', version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=126', order: 25 },
-            lucky_pillar: { name: '幸运之柱', nameEn: 'Lucky Pillar', category: '建筑比赛', desc: '幸运之柱建筑挑战，看谁运气好', players: '👥 多人', version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=168', order: 26 },
-            hundred_ways_die: { name: '100种死法', nameEn: '100 Ways To Die!', category: '友尽小游戏', desc: '100种奇葩死法，看谁死得最快', players: '👥 多人', version: '📦 1.21.5', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=0', order: 27 },
-            would_you_rather: { name: '你会选哪个', nameEn: 'Would You Rather', category: '友尽小游戏', desc: '两难选择，看谁的选择更奇葩', players: '👥 多人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=30', order: 28 },
-            arrow_shoot: { name: '箭有虚发', nameEn: 'Arrow Shooting', category: '友尽小游戏', desc: '射箭挑战，看谁箭法准', players: '👥 多人', version: '📦 1.18.X', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=60', order: 29 },
-            dodge_all: { name: 'Dodge All', nameEn: 'Dodge All', category: '友尽小游戏', desc: '躲避挑战，看谁能躲到最后', players: '👥 多人', version: '📦 1.18.X', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=90', order: 30 },
-            boom_doom: { name: 'Boom Doom', nameEn: 'Boom Doom', category: '友尽假期', desc: '爆炸生存小游戏，和朋友在不断爆炸的方块中求生！', players: '👥 2-8人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=140', order: 37 },
-            disaster_star_2: { name: '灾难之星2', nameEn: 'Disaster Star 2', category: '友尽假期', desc: '灾难生存地图，随机灾难来袭，和朋友一起在灾难中求生！有汉化版', players: '👥 2-8人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=5', order: 38 },
-            mc_kart_2: { name: 'MC卡丁车2', nameEn: 'MC Kart 2', category: '友尽假期', desc: 'MC版马里奥赛车！自带mod的卡丁车竞速地图，需要搭配整合包', players: '👥 2-8人', version: '📦 1.20.4', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=36', order: 39 },
-            death_runner_2: { name: '死亡竞速2', nameEn: 'Death Runner 2', category: '友尽假期', desc: '紧张刺激的障碍竞速地图，一路狂奔躲避各种致命陷阱！有汉化版', players: '👥 2-8人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=66', order: 40 },
-            mario_party_mc: { name: '马里奥派对', nameEn: 'Mario Party MC', category: '友尽假期', desc: 'MC版马里奥派对！棋盘+小游戏，和朋友一起掷骰子闯关！MineBBS有汉化', players: '👥 2-4人', version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=100', order: 41 },
-            halloween_chaos: { name: '万圣节大乱斗', nameEn: 'Halloween Chaos', category: '多人对抗', desc: '万圣节主题大乱斗，节日欢乐', players: '👥 多人', version: '📦 1.19.2', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=0', order: 32 },
-            war_games: { name: '战争模拟器', nameEn: 'War Games', category: '多人对抗', desc: '模拟战争对抗，策略与操作并重', players: '👥 多人', version: '📦 1.21.8', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=30', order: 33 },
-            honey_missile: { name: '蜂蜜导弹大战', nameEn: 'Honey Missile Wars', category: '多人对抗', desc: '蜂蜜导弹大战，欢乐射击', players: '👥 多人', version: '📦 1.20.6', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=60', order: 34 },
-            tactical_gaggle: { name: '战术小队', nameEn: 'Tactical Gaggle', category: '多人对抗', desc: '战术射击对抗，团队协作', players: '👥 多人', version: '📦 1.18.1', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=90', order: 35 },
-            the_chasers: { name: '追击者', nameEn: 'The Chasers', category: '多人对抗', desc: '追击与逃跑，紧张刺激', players: '👥 多人', version: '📦 1.21', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=120', order: 36 },
-            harpy_express: { name: '哈比快车谋杀案（残月版）', nameEn: 'The Last Voyage of the Harpy Express', category: '友尽假期', desc: '推理谋杀案列车！45+职业 50+特殊技能 8张地图，残月改版更刺激。需加QQ群652776926获取', players: '👥 多人', version: '📦 整合包', videoUrl: 'https://www.bilibili.com/video/BV1eicjzdEED/?t=0', order: 42 },
-            manosaba: { name: '魔女审判（Manosaba）', nameEn: 'Magical Girl Paradox', category: '友尽假期', desc: 'MC首款实时线索狼人杀！推理+对抗，找出隐藏在同伴中的魔女', players: '👥 多人', version: '📦 Beta', videoUrl: 'https://www.bilibili.com/video/BV1itQnBLEcq/?t=0', order: 43 }
+            splatoon: { name: '喷射战士MC版', nameEn: 'Splatoon in Minecraft', category: '射击/对战', desc: 'MC版喷射战士，涂地盘+射击对战，多人欢乐对抗', players: '👥 2-16人', playersMin: 2, playersMax: 16, version: '📦 1.21', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=15', order: 1 },
+            fangkuai: { name: '方块喷喷喷', nameEn: 'FangKuai PenPenPen', category: '射击/对战', desc: '国产喷射战士风格地图，需要搭配特定整合包游玩', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 需整合包', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=20', order: 2 },
+            mace: { name: '锤子大乱斗', nameEn: 'MACE BLASTERS', category: '射击/对战', desc: '使用重锤进行多人乱斗，击飞对手得分，简单刺激', players: '👥 2-6人', playersMin: 2, playersMax: 6, version: '📦 1.21.5-6', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=90', order: 3 },
+            ctf: { name: '终极夺旗战', nameEn: 'Ultimate Capture the Flag', category: '团队对抗', desc: '经典夺旗模式，分队对抗抢夺对方旗帜带回己方基地', players: '👥 4-16人', playersMin: 4, playersMax: 16, version: '📦 1.21.5', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=120', order: 4 },
+            wii: { name: 'Wii派对棋盘岛', nameEn: 'Wii Party: Board Game Island', category: '派对/棋盘', desc: '还原Wii派对经典玩法，棋盘前进+各种小游戏，派对感满满', players: '👥 仅限4人', playersMin: 4, playersMax: 4, version: '📦 1.21.1', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=55', order: 5 },
+            bingo: { name: '终极宾果', nameEn: 'Yet Another Bingo: Ultimate', category: '派对/棋盘', desc: '最贴近MC原版的宾果小游戏！收集指定物品完成Bingo卡，合作又有竞争', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 整合包', videoUrl: 'https://www.bilibili.com/video/BV1NZqpBYEVM/?t=0', order: 6 },
+            floor: { name: '100层生存挑战', nameEn: '100 Floor Survival', category: '闯关/挑战', desc: '逐层闯关的生存挑战，难度递增，考验各种MC技巧', players: '👥 2-4人', playersMin: 2, playersMax: 4, version: '📦 1.19', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=155', order: 7 },
+            skyline: { name: '天际冲刺', nameEn: 'Skyline Sprint', category: '闯关/挑战', desc: '高空跑酷冲刺挑战，考验操作和反应速度', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.20.2', videoUrl: 'https://www.bilibili.com/video/BV16w3ezuEb1/?t=175', order: 8 },
+            scaredy_cat: { name: 'Scaredy Cat', nameEn: 'Hide & Seek', category: '躲猫猫', desc: '经典躲猫猫玩法，猫抓老鼠，多人欢乐追逐', players: '👥 3-10人', playersMin: 3, playersMax: 10, version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=0', order: 9 },
+            hide_seek_remastered: { name: '躲猫猫重制版', nameEn: 'Hide and Seek Remastered', category: '躲猫猫', desc: '经典躲猫猫重制版，优化玩法，更多乐趣', players: '👥 3-10人', playersMin: 3, playersMax: 10, version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=40', order: 10 },
+            japanese_hide_seek: { name: '日式躲猫猫', nameEn: 'Japanese Hide and Seek', category: '躲猫猫', desc: '日式风格躲猫猫，独特的场景设计', players: '👥 3-10人', playersMin: 3, playersMax: 10, version: '📦 1.20.4', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=80', order: 11 },
+            cat_mouse: { name: '猫抓老鼠', nameEn: 'Cat and Mouse', category: '躲猫猫', desc: '猫抓老鼠追逐战，紧张刺激的多人对战', players: '👥 3-10人', playersMin: 3, playersMax: 10, version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=120', order: 12 },
+            block_hide_seek: { name: '方块躲猫猫', nameEn: 'Block Hide and Seek', category: '躲猫猫', desc: '方块风格躲猫猫，变成方块躲藏', players: '👥 3-10人', playersMin: 3, playersMax: 10, version: '📦 1.16.5', videoUrl: 'https://www.bilibili.com/video/BV1EKYfzFEng/?t=160', order: 13 },
+            lucky_strength: { name: '幸运与实力', nameEn: 'Lucky and Strength', category: '幸运方块', desc: '幸运与实力并存，看谁运气好实力强', players: '👥 2-4人', playersMin: 2, playersMax: 4, version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=0', order: 14 },
+            lucky_block_racing: { name: '幸运方块赛道', nameEn: 'Lucky Block Racing', category: '幸运方块', desc: '幸运方块竞速赛，看谁先到终点', players: '👥 4-6人', playersMin: 4, playersMax: 6, version: '📦 需特定整合包', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=37', order: 15 },
+            lucky_oneblock: { name: '幸运方块空岛', nameEn: 'Lucky Oneblock', category: '幸运方块', desc: '幸运方块空岛生存，看谁能活到最后', players: '👥 1-4人', playersMin: 1, playersMax: 4, version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV188Q5BDEgK/?t=74', order: 16 },
+            atmos: { name: 'ATMOS', nameEn: 'ATMOS', category: '冒险/探索', desc: '肉鸽冒险地图，随机生成关卡', players: '👥 2-4人', playersMin: 2, playersMax: 4, version: '📦 需特定整合包', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=0', order: 17 },
+            yoodexy: { name: 'Yoodexy的模组', nameEn: "Yoodexy's Mod", category: '冒险/探索', desc: '模组冒险地图，独特玩法体验', players: '👥 5-6人', playersMin: 5, playersMax: 6, version: '📦 1.21.8', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=48', order: 18 },
+            doors: { name: 'Doors', nameEn: 'Doors', category: '冒险/探索', desc: '门后世界冒险，探索未知', players: '👥 2-6人', playersMin: 2, playersMax: 6, version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=96', order: 19 },
+            final_paradox: { name: '终极悖论', nameEn: 'FINAL PARADOX', category: '冒险/探索', desc: '终极悖论冒险，烧脑解密', players: '👥 2-6人', playersMin: 2, playersMax: 6, version: '📦 1.16.5', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=144', order: 20 },
+            enzzo_kebab: { name: 'Enzzo Kebab', nameEn: 'Enzzo Kebab', category: '冒险/探索', desc: '烤肉店冒险，独特主题体验', players: '👥 2-6人', playersMin: 2, playersMax: 6, version: '📦 1.20.4', videoUrl: 'https://www.bilibili.com/video/BV1NnzzBSE2F/?t=192', order: 21 },
+            building_game: { name: '建筑游戏重制版', nameEn: 'Building Game Redux', category: '建筑比赛', desc: '经典建筑游戏重制版，比拼创意', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=0', order: 22 },
+            parkourse_party: { name: '跑酷派对', nameEn: 'Parkourse Party', category: '建筑比赛', desc: '跑酷与建筑结合，派对欢乐', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.17.1', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=42', order: 23 },
+            speed_builders: { name: '速建大师', nameEn: 'Speed Builders', category: '建筑比赛', desc: '限时建筑挑战，看谁建得又快又好', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=84', order: 24 },
+            temple_topper: { name: '寺庙挑战', nameEn: 'Temple Topper', category: '建筑比赛', desc: '寺庙建筑挑战，考验技巧', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.21.4', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=126', order: 25 },
+            lucky_pillar: { name: '幸运之柱', nameEn: 'Lucky Pillar', category: '建筑比赛', desc: '幸运之柱建筑挑战，看谁运气好', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.21.10', videoUrl: 'https://www.bilibili.com/video/BV1iBwsznE6o/?t=168', order: 26 },
+            hundred_ways_die: { name: '100种死法', nameEn: '100 Ways To Die!', category: '友尽小游戏', desc: '100种奇葩死法，看谁死得最快', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.21.5', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=0', order: 27 },
+            would_you_rather: { name: '你会选哪个', nameEn: 'Would You Rather', category: '友尽小游戏', desc: '两难选择，看谁的选择更奇葩', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=30', order: 28 },
+            arrow_shoot: { name: '箭有虚发', nameEn: 'Arrow Shooting', category: '友尽小游戏', desc: '射箭挑战，看谁箭法准', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.18.X', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=60', order: 29 },
+            dodge_all: { name: 'Dodge All', nameEn: 'Dodge All', category: '友尽小游戏', desc: '躲避挑战，看谁能躲到最后', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.18.X', videoUrl: 'https://www.bilibili.com/video/BV1LN7AzbEVj/?t=90', order: 30 },
+            boom_doom: { name: 'Boom Doom', nameEn: 'Boom Doom', category: '友尽假期', desc: '爆炸生存小游戏，和朋友在不断爆炸的方块中求生！', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=140', order: 37 },
+            disaster_star_2: { name: '灾难之星2', nameEn: 'Disaster Star 2', category: '友尽假期', desc: '灾难生存地图，随机灾难来袭，和朋友一起在灾难中求生！有汉化版', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=5', order: 38 },
+            mc_kart_2: { name: 'MC卡丁车2', nameEn: 'MC Kart 2', category: '友尽假期', desc: 'MC版马里奥赛车！自带mod的卡丁车竞速地图，需要搭配整合包', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.20.4', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=36', order: 39 },
+            death_runner_2: { name: '死亡竞速2', nameEn: 'Death Runner 2', category: '友尽假期', desc: '紧张刺激的障碍竞速地图，一路狂奔躲避各种致命陷阱！有汉化版', players: '👥 2-8人', playersMin: 2, playersMax: 8, version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=66', order: 40 },
+            mario_party_mc: { name: '马里奥派对', nameEn: 'Mario Party MC', category: '友尽假期', desc: 'MC版马里奥派对！棋盘+小游戏，和朋友一起掷骰子闯关！MineBBS有汉化', players: '👥 2-4人', playersMin: 2, playersMax: 4, version: '📦 1.20.1', videoUrl: 'https://www.bilibili.com/video/BV1zx4y1z7Tu/?t=100', order: 41 },
+            halloween_chaos: { name: '万圣节大乱斗', nameEn: 'Halloween Chaos', category: '多人对抗', desc: '万圣节主题大乱斗，节日欢乐', players: '👥 4-16人', playersMin: 4, playersMax: 16, version: '📦 1.19.2', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=0', order: 32 },
+            war_games: { name: '战争模拟器', nameEn: 'War Games', category: '多人对抗', desc: '模拟战争对抗，策略与操作并重', players: '👥 4-16人', playersMin: 4, playersMax: 16, version: '📦 1.21.8', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=30', order: 33 },
+            honey_missile: { name: '蜂蜜导弹大战', nameEn: 'Honey Missile Wars', category: '多人对抗', desc: '蜂蜜导弹大战，欢乐射击', players: '👥 4-12人', playersMin: 4, playersMax: 12, version: '📦 1.20.6', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=60', order: 34 },
+            tactical_gaggle: { name: '战术小队', nameEn: 'Tactical Gaggle', category: '多人对抗', desc: '战术射击对抗，团队协作', players: '👥 4-12人', playersMin: 4, playersMax: 12, version: '📦 1.18.1', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=90', order: 35 },
+            the_chasers: { name: '追击者', nameEn: 'The Chasers', category: '多人对抗', desc: '追击与逃跑，紧张刺激', players: '👥 3-10人', playersMin: 3, playersMax: 10, version: '📦 1.21', videoUrl: 'https://www.bilibili.com/video/BV1kxnhz4EyT/?t=120', order: 36 },
+            harpy_express: { name: '哈比快车谋杀案（残月版）', nameEn: 'The Last Voyage of the Harpy Express', category: '友尽假期', desc: '推理谋杀案列车！45+职业 50+特殊技能 8张地图，残月改版更刺激。需加QQ群652776926获取', players: '👥 6-14人', playersMin: 6, playersMax: 14, version: '📦 整合包', videoUrl: 'https://www.bilibili.com/video/BV1eicjzdEED/?t=0', order: 42 },
+            manosaba: { name: '魔女审判（Manosaba）', nameEn: 'Magical Girl Paradox', category: '友尽假期', desc: 'MC首款实时线索狼人杀！推理+对抗，找出隐藏在同伴中的魔女', players: '👥 8-20人', playersMin: 8, playersMax: 20, version: '📦 Beta', videoUrl: 'https://www.bilibili.com/video/BV1itQnBLEcq/?t=0', order: 43 }
         };
 
         // ---- 运行时地图数据（从 JSONBin 加载并合并）----
@@ -1472,6 +1493,33 @@
                 currentMapData[mapId] = deletedData;
                 showToast('❌ 删除失败，请重试');
             }
+        }
+
+
+        // ---- 人数筛选 ----
+        function filterByPlayers() {
+            const count = parseInt(document.getElementById('playerFilter').value);
+            const hint = document.getElementById('playerFilterHint');
+            if (count === 0) {
+                hint.textContent = '';
+                document.querySelectorAll('.map-card').forEach(c => c.style.display = '');
+                document.querySelectorAll('.vote-section').forEach(s => s.style.display = '');
+                return;
+            }
+            hint.textContent = '筛选: ' + count + '人可玩';
+            document.querySelectorAll('.map-card').forEach(card => {
+                const mapId = card.getAttribute('data-map');
+                const map = currentMapData[mapId];
+                if (map) {
+                    const min = map.playersMin || 1;
+                    const max = map.playersMax || 20;
+                    card.style.display = (count >= min && count <= max) ? '' : 'none';
+                }
+            });
+            document.querySelectorAll('.vote-section').forEach(section => {
+                const visibleCards = section.querySelectorAll('.map-card:not([style*="display: none"])');
+                section.style.display = visibleCards.length === 0 ? 'none' : '';
+            });
         }
 
         // ---- Toast ----
